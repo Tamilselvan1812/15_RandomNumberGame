@@ -3,109 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Kts game</title>
- <style>
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    animation: backgroundFade 10s infinite alternate;
-  }
-
-  @keyframes backgroundFade {
-    0% {
-      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    }
-    100% {
-      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-    }
-  }
-
-  .game-container {
-    background: white;
-    padding: 35px 45px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 350px;
-    animation: popIn 0.5s ease-out;
-  }
-
-  @keyframes popIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  h1 {
-    font-size: 32px;
-    color: #ff5722;
-    margin-bottom: 20px;
-  }
-
-  input#guessnumber {
-    padding: 12px;
-    width: 120px;
-    font-size: 18px;
-    margin-bottom: 15px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-
-  input#guessnumber:focus {
-    border-color: #ff5722;
-  }
-
-  button {
-    padding: 12px 20px;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 10px;
-    transition: transform 0.2s ease;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  p {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-
-  #result {
-    font-weight: bold;
-    color: #e91e63;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-
-  #score {
-    font-weight: bold;
-    color: #2196f3;
-    font-size: 18px;
-  }
-</style>
-  
+ 
 </head>
 
 
@@ -119,40 +19,7 @@
        <p id="score">Score:10</p>
     </div>
 
+<script src="script.js"></script>
 
-<script>
-  let guessnumber = document.getElementById("guessnumber");            //selecting input ,result,score
-  let result = document.getElementById("result");
-  let score = document.getElementById("score");
-  let randomNumber = Math.floor(Math.random() * 10) + 1;              //math.random = 0.0 to 0.9 ,math.floor = 1.9 it changes to 1
-  let totalscore = 10;
-
-  function check() {
-    let enterednumber = guessnumber.value;
-
-    if (totalscore > 0) 
-    {
-      if (randomNumber == enterednumber) {
-        result.textContent = "🎉 Right! You guessed it!";
-        result.style.color = "#4CAF50";
-        alert("You Won! 🎊");
-                                                             
-      } 
-      else {
-        totalscore=totalscore-1
-        score.textContent = "Score: " + totalscore;
-        result.textContent = "❌ Wrong! Try again.";
-        result.style.color = "#e91e63";
-
-        if (totalscore === 0) {
-          result.textContent = "💀 Game Over!";
-          result.style.color = "black";
-
-
-        }
-      }
-    }
-  }
-</script>
  </body>
 </html>
